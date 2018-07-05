@@ -6,8 +6,8 @@ VID = "tk2AXB3wf9s"
 
 def parse(qs):
     d = parse_qs(qs)
-    m = d["url_encoded_fmt_stream_map"][0]
-    d2 = parse_qs(m)
+    stream_list = d["url_encoded_fmt_stream_map"][0].split(',')
+    d2 = parse_qs(stream_list[0])
     url = d2["url"]
     print(url[0])
 
