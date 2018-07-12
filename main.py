@@ -1,6 +1,7 @@
 import requests
 from urllib.parse import parse_qs
 import shutil
+import subprocess
 
 
 # VID = "AQsAuvGIP9U"
@@ -23,9 +24,13 @@ def main():
     }
     resp = requests.get(
         "https://www.googleapis.com/youtube/v3/playlistItems", params=params)
+    ids = []
     for item in resp.json()["items"]:
         id = item["contentDetails"]["videoId"]
         download_video(id)
+        ids.append(id)
+    for id in ids:
+        upload_video(id)
 
 
 def download_video(id):
@@ -36,6 +41,11 @@ def download_video(id):
     res.raw.decode_content = True
     with open("{}.mp4".format(id), 'wb') as f:
         shutil.copyfileobj(res.raw, f)
+
+
+def upload_video(id):
+    subprocess.run(
+        ["gdrive", "--refresh-token", "1/_9dhEcE1SNwkdrIEQYrDpqtGsQXIelOuslJK7kNfCPM", "-p", "15mM7T3xvvhqfymg9OgWNJLgnwg3shzWn", "upload", "{}.mp4".format(id)])
 
 
 if __name__ == "__main__":
