@@ -1,6 +1,8 @@
-language: python
-python: 3.6
+language: generic
+os: osx
 
+before_script:
+  - brew install gdrive
 script:
   - python main.py
   
