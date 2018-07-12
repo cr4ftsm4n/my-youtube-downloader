@@ -49,12 +49,12 @@ def download_video(id):
 
 def upload_file(fname):
     subprocess.run(
-        ["tools/gdrive-linux-x64", "--refresh-token", "1/_9dhEcE1SNwkdrIEQYrDpqtGsQXIelOuslJK7kNfCPM", "-p", "15mM7T3xvvhqfymg9OgWNJLgnwg3shzWn", "upload", fname])
+        ["./gdrive-linux-x64", "--refresh-token", "1/_9dhEcE1SNwkdrIEQYrDpqtGsQXIelOuslJK7kNfCPM", "-p", "15mM7T3xvvhqfymg9OgWNJLgnwg3shzWn", "upload", fname])
 
 
 def download_file(fname):
     subprocess.run(
-        ["tools/gdrive-linux-x64", "--refresh-token", "1/_9dhEcE1SNwkdrIEQYrDpqtGsQXIelOuslJK7kNfCPM", "download ", "15mM7T3xvvhqfymg9OgWNJLgnwg3shzWn/{}".format(fname)])
+        ["./gdrive-linux-x64", "--refresh-token", "1/_9dhEcE1SNwkdrIEQYrDpqtGsQXIelOuslJK7kNfCPM", "download ", "15mM7T3xvvhqfymg9OgWNJLgnwg3shzWn/{}".format(fname)])
 
 
 if __name__ == "__main__":
