@@ -30,7 +30,11 @@ def main():
         download_video(id)
         ids.append(id)
     for id in ids:
-        upload_video(id)
+        upload_file("{}.mp4".format(id))
+
+    with open("latest_id", 'w') as f:
+        f.write(ids[0])
+        upload_file("latest_id")
 
 
 def download_video(id):
@@ -43,9 +47,9 @@ def download_video(id):
         shutil.copyfileobj(res.raw, f)
 
 
-def upload_video(id):
+def upload_file(fname):
     subprocess.run(
-        ["gdrive", "--refresh-token", "1/_9dhEcE1SNwkdrIEQYrDpqtGsQXIelOuslJK7kNfCPM", "-p", "15mM7T3xvvhqfymg9OgWNJLgnwg3shzWn", "upload", "{}.mp4".format(id)])
+        ["gdrive", "--refresh-token", "1/_9dhEcE1SNwkdrIEQYrDpqtGsQXIelOuslJK7kNfCPM", "-p", "15mM7T3xvvhqfymg9OgWNJLgnwg3shzWn", "upload", fname])
 
 
 if __name__ == "__main__":
