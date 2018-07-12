@@ -3,8 +3,9 @@ os: osx
 
 before_script:
   - brew install gdrive
+  - pip3 install requests
 script:
-  - python main.py
+  - python3 main.py
   
 notifications:
   email: false
