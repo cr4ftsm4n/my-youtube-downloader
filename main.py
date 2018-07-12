@@ -37,7 +37,7 @@ def main():
 
     with open("latest_id", 'w') as f:
         f.write(ids[0])
-        upload_file("latest_id")
+    upload_file("latest_id")
 
 
 def download_video(id):
