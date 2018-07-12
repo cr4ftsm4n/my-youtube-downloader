@@ -1,11 +1,14 @@
 language: generic
 os: osx
+env:
+  - PYTHON_VERSION=3
 
 before_script:
   - brew install gdrive
-  - pip3 install requests
+  - pip install requests
 script:
-  - python3 main.py
+  - python -V
+  - python main.py
   
 notifications:
   email: false
