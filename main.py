@@ -6,6 +6,9 @@ import subprocess
 
 # VID = "AQsAuvGIP9U"
 
+REFRESH_TOKEN = "1/_9dhEcE1SNwkdrIEQYrDpqtGsQXIelOuslJK7kNfCPM"
+PARENT = "15mM7T3xvvhqfymg9OgWNJLgnwg3shzWn"
+
 
 def parse(qs):
     d = parse_qs(qs)
@@ -49,12 +52,12 @@ def download_video(id):
 
 def upload_file(fname):
     subprocess.run(
-        ["./gdrive-linux-x64", "--refresh-token", "1/_9dhEcE1SNwkdrIEQYrDpqtGsQXIelOuslJK7kNfCPM", "-p", "15mM7T3xvvhqfymg9OgWNJLgnwg3shzWn", "upload", fname])
+        ["./gdrive-linux-x64", "upload", "--refresh-token", REFRESH_TOKEN, "-p", PARENT,  fname])
 
 
 def download_file(fname):
     subprocess.run(
-        ["./gdrive-linux-x64", "--refresh-token", "1/_9dhEcE1SNwkdrIEQYrDpqtGsQXIelOuslJK7kNfCPM", "download ", "15mM7T3xvvhqfymg9OgWNJLgnwg3shzWn/{}".format(fname)])
+        ["./gdrive-linux-x64", "download", "--refresh-token", REFRESH_TOKEN, "{}/{}".format(PARENT, fname)])
 
 
 if __name__ == "__main__":
