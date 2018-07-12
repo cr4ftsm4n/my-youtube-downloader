@@ -1,13 +1,10 @@
-language: generic
-os: osx
-env:
-  - PYTHON_VERSION=3
+language: python
+python: 3.6
 
 before_script:
-  - brew install gdrive
   - pip install requests
+  - chmod +x tools/gdrive-linux-x64
 script:
-  - python -V
   - python main.py
   
 notifications:
