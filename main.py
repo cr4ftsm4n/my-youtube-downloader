@@ -15,6 +15,18 @@ def parse(qs):
 
 
 def main():
+    params = {
+        "playlistId": "PLDYAvKPeZGgC1HGrJ-0oNftx5Ry9u0Nne",
+        "part": "snippet,contentDetails",
+        "key": "AIzaSyCyLSmcEDJt3HaLFK0_LdJYPkq0RFAVzKA",
+        "maxResults": "50",
+    }
+    resp = requests.get(
+        "https://www.googleapis.com/youtube/v3/playlistItems", params=params)
+    print(resp.text)
+
+
+def download_video():
     resp = requests.get(
         "https://www.youtube.com/get_video_info?video_id={}".format(VID))
     url = parse(resp.text)[0]
