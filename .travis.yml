@@ -3,7 +3,7 @@ python: 3.6
 
 before_script:
   - pip install requests
-  - chmod +x tools/gdrive-linux-x64
+  - chmod +x gdrive-linux-x64
 script:
   - python main.py
   
