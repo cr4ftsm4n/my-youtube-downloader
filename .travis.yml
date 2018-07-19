@@ -5,7 +5,7 @@ before_script:
   - pip install requests
   - chmod +x gdrive-linux-x64
 script:
-  - ./travis.sh
+  - bash travis.sh
   
 notifications:
   email: false
