@@ -21,6 +21,13 @@ def parse(qs):
 
 
 def main():
+    latest = ""
+    record_file = "latest_id"
+    with open(record_file, 'r') as f:
+         latest = f.readline()
+    if latest == "":
+        print("can't get latest id, about exiting")
+        return
     params = {
         "playlistId": "PLDYAvKPeZGgC1HGrJ-0oNftx5Ry9u0Nne",
         "part": "snippet,contentDetails",
@@ -32,15 +39,16 @@ def main():
     ids = []
     for item in resp.json()["items"]:
         id = item["contentDetails"]["videoId"]
-        download_video(id)
-        ids.append(id)
+        if id == latest.strip():
+            break
+        else:
+            download_video(id)
+            ids.append(id)
     for id in ids:
         upload_file("{}.mp4".format(id))
 
-#     with open("latest_id", 'w') as f:
-#         f.write(ids[0])
-#     upload_file("latest_id")
-
+    with open(record_file, 'w') as f:
+        f.write(ids[0])
 
 def download_video(id):
     resp = requests.get(
@@ -55,11 +63,6 @@ def download_video(id):
 def upload_file(fname):
     subprocess.run(
         ["./gdrive-linux-x64", "upload", "--refresh-token", REFRESH_TOKEN, "-p", PARENT,  fname])
-
-
-def download_file(fname):
-    subprocess.run(
-        ["./gdrive-linux-x64", "download", "--refresh-token", REFRESH_TOKEN, "{}/{}".format(PARENT, fname)])
 
 
 if __name__ == "__main__":
