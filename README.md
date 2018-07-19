@@ -2,6 +2,7 @@
 
 # my-youtube-downloader
 
+## environment variables set in travis/more options/setting/Environment Variables
 - GIT_EMAIL
 - GIT_NAME
 - GITHUB_TOKEN
