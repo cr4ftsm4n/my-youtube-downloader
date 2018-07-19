@@ -7,6 +7,8 @@ GIT_COMMIT_MESSAGE="upate latest file"
 GIT_REPO="cr4ftsm4n/my-youtube-downloader"
 GIT_BRANCH="master"
 
+git checkout "${GIT_BRANCH}"
+
 python main.py
 
 git add latest_id
