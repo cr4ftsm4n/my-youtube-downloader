@@ -2,12 +2,14 @@ import requests
 from urllib.parse import parse_qs
 import shutil
 import subprocess
+import os
 
 
 # VID = "AQsAuvGIP9U"
 
-REFRESH_TOKEN = "1/_9dhEcE1SNwkdrIEQYrDpqtGsQXIelOuslJK7kNfCPM"
+REFRESH_TOKEN = os.getenv("REFRESH_TOKEN")
 PARENT = "1kzNSmD2lH880XbdsAOwV9oHwhDIMArkj"
+YOUTUBE_API_KEY= os.getenv("YOUTUBE_API_KEY")
 
 
 def parse(qs):
@@ -22,7 +24,7 @@ def main():
     params = {
         "playlistId": "PLDYAvKPeZGgC1HGrJ-0oNftx5Ry9u0Nne",
         "part": "snippet,contentDetails",
-        "key": "AIzaSyCyLSmcEDJt3HaLFK0_LdJYPkq0RFAVzKA",
+        "key": YOUTUBE_API_KEY,
         "maxResults": "50",
     }
     resp = requests.get(
