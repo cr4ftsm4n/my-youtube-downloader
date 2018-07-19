@@ -40,6 +40,7 @@ def main():
     for item in resp.json()["items"]:
         id = item["contentDetails"]["videoId"]
         if id == latest.strip():
+            print("reach the last downloaded")
             break
         else:
             download_video(id)
