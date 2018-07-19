@@ -48,8 +48,9 @@ def main():
     for id in ids:
         upload_file("{}.mp4".format(id))
 
-    with open(record_file, 'w') as f:
-        f.write(ids[0])
+    if len(ids) > 0:
+        with open(record_file, 'w') as f:
+            f.write(ids[0])
 
 def download_video(id):
     resp = requests.get(
