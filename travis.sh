@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
-IFS=$'\n\t'
-
 GIT_COMMIT_MESSAGE="upate latest file"
 GIT_REPO="cr4ftsm4n/my-youtube-downloader"
 GIT_BRANCH="master"
