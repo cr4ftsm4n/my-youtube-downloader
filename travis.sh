@@ -9,8 +9,8 @@ GIT_BRANCH="master"
 
 python main.py
 
-git status
 git add latest_id
+git status
 git -c "commit.gpgsign=false" \
     -c "user.name=${GIT_NAME}" \
     -c "user.email=${GIT_EMAIL}" \
