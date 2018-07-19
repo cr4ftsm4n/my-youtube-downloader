@@ -17,4 +17,7 @@ git -c "commit.gpgsign=false" \
     -c "user.name=${GIT_NAME}" \
     -c "user.email=${GIT_EMAIL}" \
     commit -m "${GIT_COMMIT_MESSAGE}"
-git push "https://x-token:${GITHUB_TOKEN}@github.com/${GIT_REPO}" "${GIT_BRANCH}"
+
+# push changes
+# always return true so that the build does not fail if there are no changes
+git push "https://x-token:${GITHUB_TOKEN}@github.com/${GIT_REPO}" "${GIT_BRANCH}" || true
