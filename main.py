@@ -7,7 +7,7 @@ import subprocess
 # VID = "AQsAuvGIP9U"
 
 REFRESH_TOKEN = "1/_9dhEcE1SNwkdrIEQYrDpqtGsQXIelOuslJK7kNfCPM"
-PARENT = "15mM7T3xvvhqfymg9OgWNJLgnwg3shzWn"
+PARENT = "1kzNSmD2lH880XbdsAOwV9oHwhDIMArkj"
 
 
 def parse(qs):
@@ -35,9 +35,9 @@ def main():
     for id in ids:
         upload_file("{}.mp4".format(id))
 
-    with open("latest_id", 'w') as f:
-        f.write(ids[0])
-    upload_file("latest_id")
+#     with open("latest_id", 'w') as f:
+#         f.write(ids[0])
+#     upload_file("latest_id")
 
 
 def download_video(id):
